@@ -65,7 +65,7 @@ def nmap_scan():
             # Stocke le port ouvert trouvé dans la variable
             open_port = port
             try:
-                with open("test.txt","a") as f:
+                with open("resultat_code.txt","a") as f:
                     f.write(f"ip : {str(target)} , port : {str(port)} , service : {service}\n")
                     print(f"port {port} enregistré dans le fichier")
                 f.close()
@@ -126,7 +126,7 @@ def nexfil():
 
 def scan_shodan():
     # Initialize the Shodan API object with your API key
-    SHODAN_API_KEY = "ncUcft5EwlkQnnTVcqKKhyywTQv96Iv3"
+    SHODAN_API_KEY = "ncUcft5EwlkQnnTVcqKKhyywTQv96Iv3" #pour l'utiliser il faut avoir un compte payant sinon ca renvoie une erreur
     api = shodan.Shodan(SHODAN_API_KEY)
 
     # Get information about a specific device using its IP address
