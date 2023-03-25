@@ -151,9 +151,15 @@ def hunter():
 
     if response.status_code == 200:
         data = response.json()
-        emails = data['data']['emails']
-        for email in emails:
-            print(email['value'])
+        #print(data)
+        if 'emails' in data['data']:
+            #print(f'len(data["data"]["emails"]) = {len(data["data"]["emails"])}')
+            if len(data['data']['emails']) != 0:
+                emails = data['data']['emails']
+                for email in emails:
+                    print(email['value'])
+            else:
+                print(f"Aucun email pour {domain}")
     else:
         print(f"Error: {response.status_code}")
     #c'est une autre partie de hunter 
